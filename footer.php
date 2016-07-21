@@ -14,29 +14,29 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
         <div class="foot_right">
             <div class="right_text">
                 <span>关于我们</span><br />
-                <a href="/about/show/19198948645" title="车道评测网简介" target="_blank">车道评测网简介</a><br />
-                <a href="/about/show/19198948653" title="联系我们" target="_blank">联系我们</a><br />
-                <a href="/about/show/19198948646" title="合作伙伴" target="_blank">合作伙伴</a><br />
+                <a href="#" title="车道评测网简介" target="_blank">车道评测网简介</a><br />
+                <a href="#" title="联系我们" target="_blank">联系我们</a><br />
+                <a href="#" title="合作伙伴" target="_blank">合作伙伴</a><br />
                 <a href="http://www.cnchezhan.com/zhuanti/2014guangzhouchezhan.html" title="广州车展" target="_blank">广州车展</a>
             </div>
             <div class="right_text">
                 <span>加入我们</span><br />
-                <a href="/about/show/19198948647" title="招聘信息" target="_blank">招聘信息</a>
+                <a href="#" title="招聘信息" target="_blank">招聘信息</a>
             </div>
             <div class="right_text">
                 <span>网站条款</span><br />
-                <a href="/about/show/19198948648" title="会员条款" target="_blank">会员条款</a><br />
-                <a href="/about/show/19198948649" title="隐私声明" target="_blank">隐私声明</a>
+                <a href="#" title="会员条款" target="_blank">会员条款</a><br />
+                <a href="#" title="隐私声明" target="_blank">隐私声明</a>
             </div>
             <div class="right_text">
                 <span>帮助中心</span><br />
-                <a href="/about/show/19198948650" title="新手上路" target="_blank">新手上路</a><br />
-                <a href="/about/show/19198948651" title="使用帮助" target="_blank">使用帮助</a><br />
-                <a href="/about/show/19201261268" title="建议投诉" target="_blank">建议投诉</a>
+                <a href="#" title="新手上路" target="_blank">新手上路</a><br />
+                <a href="#" title="使用帮助" target="_blank">使用帮助</a><br />
+                <a href="#" title="建议投诉" target="_blank">建议投诉</a>
             </div>
             <div class="right_text">
                 <span>站点导航</span><br />
-                <a href="/sitemap.xml" title="网站地图" target="_blank">网站地图</a><a name="gobottom">&nbsp;</a>
+                <a href="#" title="网站地图" target="_blank">网站地图</a><a name="gobottom">&nbsp;</a>
             </div>
         </div>
     </div>

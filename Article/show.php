@@ -262,7 +262,7 @@ if(!empty($row)){
     </div>
      <div class="zh_prize_wb">
           <div class="zh_pr_wb_tp"><img src="http://www.qupingche.com/Content/images/prize_wb.jpg" width="25" height="25" /></div>
-      <div class="zh_pr_wbgz"><a href="http://weibo.com/qupingche2013" target="_blank">关注@去评车网</a></div>
+      <div class="zh_pr_wbgz"><a href="#" target="_blank">关注@车道评测网</a></div>
           <div class="zh_pr_gztp">
 <iframe width="63" height="24" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=24&uid=3572957671&style=1&btn=red&dpc=1"></iframe>
 </div>
