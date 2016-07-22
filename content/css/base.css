@@ -161,7 +161,8 @@ img{border: none;}
 	margin-top:7px;
 	float:left;
 }
-.poster{
+/*
+#poster{
 	position: fixed;
 	z-index: 999;
 	left:5px;
@@ -174,6 +175,16 @@ img{border: none;}
 	-webkit-transition:bottom 2s;
 	-moz-transition:bottom:2s;
 	-o-transition:bottom 2s;
+}*/
+#poster{
+	position: fixed;
+	z-index: 999;
+	left:5px;
+	bottom:-200px;
+	width:360px;
+	height:200px;
+	border:1px solid #ababab;
+	background-color:white;
 }
 .post-title{
 	display: inline-block;

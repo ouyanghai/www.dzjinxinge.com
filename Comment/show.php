@@ -32,13 +32,6 @@ $car_row = mysql_fetch_assoc($car_res);
 
 <!--面包屑导航-->
 <div class="daohang"><a href="/">首页</a> > 汽车点评</div>
-<div class="chezhan_ad">
-  <script type="text/javascript">
-      /*960*90 创建于 2015-08-20*/
-      var cpro_id = "u2273851";
-  </script>
-  <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
-</div>
 <div class="dianpingpic_content">
 
 <script>
