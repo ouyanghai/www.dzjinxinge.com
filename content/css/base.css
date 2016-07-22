@@ -16,7 +16,7 @@ img{border: none;}
 
 /*返回顶部*/
 .go{width:39px;height:60px;background-color:#FFF;position:fixed;_position:absolute;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||200)-(parseInt(this.currentStyle.marginBottom,10)||0)));right:30px;bottom:25%;border-radius:5px;box-shadow:0 0 2px #6E6E6E}
-.go a{background:url('/content/images/arrow-up.png') no-repeat;display:block;text-indent:999em;width:37px;margin:5px;border:0;overflow:hidden;float:left}
+.go a{background:url('/Content/images/arrow-up.png') no-repeat;display:block;text-indent:999em;width:37px;margin:5px;border:0;overflow:hidden;float:left}
 .go .top{background-position:0 0px;height:22px}
 .go .feedback{background-position:0 -21px;height:32px}
 .go .bottom{background-position:0 -55px;height:22px}
@@ -44,20 +44,20 @@ img{border: none;}
 .head_login a:hover{color:#FFF;}
 .head_login ul,li{margin:0px;padding:0px;}
 .head_login li{display:inline;list-style:none;list-style-position:outside;text-align:left;float:left;}
-.head_login .listarrow{height:5px;background:url(/content/images/header_bg00.png) no-repeat center;}
+.head_login .listarrow{height:5px;background:url(/Content/images/header_bg00.png) no-repeat center;}
 .head_login .listhead{line-height:24px;text-align:left;padding:4px;font-weight:normal;background:#5a8feb; overflow:hidden;border:2px #5a8feb solid;}
 .head_login .listhead a:link{color:#FFF; background:none;}
 .head_login .listhead a:visited{color:#FFF; background:none;}
 .head_login .listhead a:hover{color:#F00; background:none;}
-.head_login .list{line-height:30px;text-align:left;padding:4px;font-weight:normal;background:url(/content/images/header_bg.png) no-repeat 10px 10px #FFF;overflow:hidden;border-left:2px #5a8feb solid;border-right:2px #5a8feb solid;border-bottom:2px #5a8feb solid;}
+.head_login .list{line-height:30px;text-align:left;padding:4px;font-weight:normal;background:url(/Content/images/header_bg.png) no-repeat 10px 10px #FFF;overflow:hidden;border-left:2px #5a8feb solid;border-right:2px #5a8feb solid;border-bottom:2px #5a8feb solid;}
 .head_login .list ul li{width:140px; overflow:hidden; margin:0px 0px 0px 5px;float:left; border-bottom:#EFEFEF 1px solid; text-indent:26px;}
 .head_login .list ul li a:link{color:#666; background:none;}
 .head_login .list ul li a:visited{color:#666; background:none;}
 .head_login .list ul li a:hover{color:#F60; background:none;}
 .head_login .menu1{width:160px;height:auto;margin:0px;line-height:30px; color:#666;padding:0px;cursor:pointer; text-align:center;}
-.head_login .menu1 a{color:#FFF; padding-right:20px; background:url(/content/images/header_bg02.png) no-repeat top right;}
+.head_login .menu1 a{color:#FFF; padding-right:20px; background:url(/Content/images/header_bg02.png) no-repeat top right;}
 .head_login .menu2{width:160px;height:30px;margin:0px; color:#FFF; line-height:30px; padding:0px;overflow-y:hidden; cursor:pointer; text-align:center;}
-.head_login .menu2 a{color:#FFF; padding-right:20px; background:url(/content/images/header_bg01.png) no-repeat top right;}
+.head_login .menu2 a{color:#FFF; padding-right:20px; background:url(/Content/images/header_bg01.png) no-repeat top right;}
 .head_login .mmenu{margin:0 0 0 5px;}
 .linekong {width: 1000px;height: 30px; margin:0 auto;}
 

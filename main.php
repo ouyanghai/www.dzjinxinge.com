@@ -94,33 +94,11 @@ $result = mysql_query($sql);
 <a href="/about/show.php?type=19198948651#02" target="_blank">财富是什么？如何赚取财富？</a><br />
 <a href="/about/show.php?type=19198948651#02" target="_blank">威望是什么？如何获得威望？</a>
 </div>
-<div class="dlr05">
-<a href="/Comment"><img src="/Content/images/senddp.jpg" alt="发表点评" /></a><a href="/Home/Register"><img src="/Content/images/regmember.jpg" alt="注册会员" /></a>
 </div>
 </div>
-</div>
-<script type="text/javascript">
-    $(function () {
-        $.getJSON("/api/comment/GetIndexCount", function (json) {
-            try{
-                $(".dlr01").children("strong").text(json.Count1+203);
-                $(".dlr02").children("strong").text(json.Count2);
-            }catch(e){}
-
-        });
-    });
-
-</script>
-<div class="chezhan_ad">
-<script type="text/javascript">
-    /*960*90 创建于 2015-08-20*/
-    var cpro_id = "u2273851";
-</script>
-<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
-
 </div>
 <div class="index_ad">
-	<a href="/report" title="汽车质量调研报告" target="_blank"><img src="/content/images/report.jpg" alt="汽车质量调研报告" style="float:left;" /></a>
+	<a href="/report" title="汽车质量调研报告" target="_blank"><img src="/Content/images/report.jpg" alt="汽车质量调研报告" style="float:left;" /></a>
 </div>
 <!--内容-->
 <div class="content">
@@ -144,9 +122,9 @@ $result = mysql_query($sql);
             <?php } ?>
 
                 <?php echo $row['scroe'] ?></span>分，共<span class="youdian"><?php echo $comm_num[0]; ?></span>人参与该车型点评<br />
-            <b class="youdian">优点：</b><?php echo mb_substr($row['virtue'], 0,90) ?><br />                
-            <b class="quedian">缺点：</b><?php echo mb_substr($row['disadv'], 0,85) ?><br />              
-            <b class="zongshu">综述：</b><?php echo mb_substr($row['zong'], 0,70) ?>...<br />
+            <b class="youdian">优点：</b><?php echo mb_substr($row['virtue'], 0,30,"utf-8") ?>...<br />                
+            <b class="quedian">缺点：</b><?php echo mb_substr($row['disadv'], 0,42,"utf-8") ?>...<br />              
+            <b class="zongshu">综述：</b><?php echo mb_substr($row['zong'], 0,30,"utf-8") ?>...<br />
             <span class="huise"><?php echo $row['comm_time'] ?></span>
         </div>
         <?php } ?>
@@ -221,11 +199,11 @@ $result = mysql_query($sql);
     </div>
     <div class="right">
         <div class="zh_prize_ad">
-<img src="/ad/2014shijiebei.jpg" alt="看2014巴西世界杯，关注球星与车的那些事儿" /></div>
+            <img src="/ad/2014shijiebei.jpg" alt="看2014巴西世界杯，关注球星与车的那些事儿" /></div>
         <div class="rightlinek"></div>
 
         <div class="helpbar">
-            <div class="hbtitle">汽车评测<span><a href="/Article" title="汽车评测" target="_blank"><img src="/content/images/left.jpg" />更多</a></span></div>
+            <div class="hbtitle">汽车评测<span><a href="/Article" title="汽车评测" target="_blank"><img src="/Content/images/left.jpg" />更多</a></span></div>
             <ul>
                 <li>[评测]<a href="/Article/show.php?type=54539677360" title="测试2015款雪佛兰新款科鲁兹1.4T DCG旗舰版" target="_blank">测试2015款雪佛兰新款科鲁兹1.4T DCG旗</a></li>
                 <li>[评测]<a href="/Article/show.php?type=54435342521" title="试驾2015款MINI COOPER S五门版" target="_blank">试驾2015款MINI COOPER S五门版</a></li>
