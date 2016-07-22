@@ -1,8 +1,11 @@
 <?php 
 include("../header.php");
 $id='';
+if(!empty($_GET['type']) && is_numeric($_GET['type'])){
+	$id = $_GET['type'];
+}
 if(!empty($_GET['id']) && is_numeric($_GET['id'])){
-	$id = $_GET['id'];
+    $id = $_GET['id'];
 }
 $sql = "select * from `test_info` where car_id={$id}";
 $res = mysql_query($sql);
