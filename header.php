@@ -1,4 +1,4 @@
-<?php  
+<?php
 $command = mysql_connect("23.248.162.241","debug","hdp@5C01") or die("mysql connect error!");
 mysql_select_db("web",$command);
 mysql_query("set names 'utf8'");

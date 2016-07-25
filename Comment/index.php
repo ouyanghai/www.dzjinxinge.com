@@ -120,7 +120,6 @@ $result = mysql_query($sql);
 
 <div class="zh_pingce_pp">
   <div class="zh_pingce_pp_s">
-    <div class="pingce_s_ss"><input class="pingce_ss" name="Submit" type="button" value=""></div>
     <div class="pingce_s_rmss">
 热门搜索：<a href="/comment/show.php?type=1009" target="_blank" title="长安锋驭">锋驭 </a><a href="/comment/show.php?type=98" target="_blank" title="比亚迪秦">秦</a><a href="/Comment/show.php?type=358" target="_blank" title="福克斯"> 福克斯</a> <a href="/Comment/show.php?type=262" target="_blank" title="途观">途观</a><a href="/Comment/show.php?type=255" target="_blank" title="迈腾"> 迈腾</a> <a href="/comment/show.php?type=252" target="_blank" title="新宝来">新宝来</a>    <a href="/comment/show.php?type=359" target="_blank" title="翼虎">翼虎</a> <a href="/comment/show.php?type=175" target="_blank" title="奔驰S级">奔驰S级 </a><a href="/comment/show.php?type=394" target="_blank" title="哈弗H6">哈弗H6</a>
     </div>
@@ -141,51 +140,7 @@ $result = mysql_query($sql);
     </div>
   </div>
 </div>
-<script>
-    $(function () {
-        searchLoadBrand();
-        var targerURL = "/Comment/index" ;
-        $(".pingce_ss").click(function () {
-            var brandid = $("#Sbrands").val();
-            var carid = $("#SCars").val();
-            window.open(targerURL + "?" + $.param({ brandid: (brandid ? brandid : 0), carid: (carid ? carid : 0) }));
-        });
-    });
 
-    function searchLoadBrand()
-    {
-        $.post("/api/car/Brands/", { pid: 0 }, function (json) {
-            var sb=$("#Sbrands");
-            $.each(json, function () {
-                
-                sb.append('<option value="' + this.ID +'">' + this.Title + '</option>');
-            });
-
-            $("#Sbrands").val("")
-            serachLoadCars();
-
-        });
-        $("#Sbrands").change(function () { serachLoadCars(); });
-        
-    }
-
-    function serachLoadCars()
-    { 
-        var bid = $("#Sbrands").val();
-        if (bid == null || bid == '') return;
-        $.post("/api/car/cars/", { brandID: bid }, function (json) {
-            var sb = $("#SCars");
-            sb.html('');
-            sb.append(' <option value="" selected>请选择汽车类型</option>');
-            $.each(json, function () {
-                sb.append('<option value="' + this.ID + '">' + this.Title + '</option>');
-            });
-
-            $("#SCars").val("")
-        });
-
-    }
-</script>
 <?php if(empty($_GET['level'])){ ?>
 <div class="zh_dp_rpcx">
   <div class="zh_rpcx1">

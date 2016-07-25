@@ -24,7 +24,7 @@ if(mysql_num_rows($t_res)==0){
     $t_num = $t_num['today'];
 }
 //首页评论
-$sql = "select * from `car_comment` group by car_id limit 8";
+$sql = "select * from `car_comment` order by comm_time desc limit 8";
 $result = mysql_query($sql);
 ?>
  <div class="jieshao">车道评测网（http://www.dzjinxinge.com）--我们专注于汽车点评，我们是专业的汽车点评网站，我们倾听汽车用户的真实声音。</div>
@@ -122,80 +122,15 @@ $result = mysql_query($sql);
             <?php } ?>
 
                 <?php echo $row['scroe'] ?></span>分，共<span class="youdian"><?php echo $comm_num[0]; ?></span>人参与该车型点评<br />
-            <b class="youdian">优点：</b><?php echo mb_substr($row['virtue'], 0,30,"utf-8") ?>...<br />                
-            <b class="quedian">缺点：</b><?php echo mb_substr($row['disadv'], 0,42,"utf-8") ?>...<br />              
-            <b class="zongshu">综述：</b><?php echo mb_substr($row['zong'], 0,30,"utf-8") ?>...<br />
+            <b class="youdian">优点：</b><?php echo mb_substr($row['virtue'], 0,25,"utf-8") ?>...<br />                
+            <b class="quedian">缺点：</b><?php echo mb_substr($row['disadv'], 0,25,"utf-8") ?>...<br />              
+            <b class="zongshu">综述：</b><?php echo mb_substr($row['zong'], 0,25,"utf-8") ?>...<br />
             <span class="huise"><?php echo $row['comm_time'] ?></span>
         </div>
         <?php } ?>
 
-        <div class="dpindex02">
-                        <select id="SRbrands" class="selectedindex">
-                            <option value="" selected>请选择汽车品牌</option>
-                        </select>
-                        <select ID="SRCars" class="selectedindex">
-                            <option value="" selected>请选择相关车型</option>
-                        </select>
-                        <input id="srButton" name="" type="button" class="btn_index" value="搜索点评" />
-        </div>
-		<script type="text/javascript">
 
-    var rightSearchType = 2;
-
-    function selectTag(showContent, type, selfObj) {
-
-        rightSearchType = type;
-        $("#tags").children("li").css("background-position-y", "0px")
-        $(selfObj).css("background-position-y", "35px")
-
-        // 操作内容
-        $("#showArticle").hide();
-        $("#ShowCar").hide();
-        $("#" + showContent).show();
-    }
-
-    $(function () {
-        SRLoadBrand();
-        
-        $("#srButton").click(function () {
-            var brandid = $("#SRbrands").val();
-            var carid = $("#SRCars").val();
-            var targerURL = "/Comment/show.php?type=" + carid;
-            window.open(targerURL);
-        });
-    });
-
-    function SRLoadBrand() {
-        $.post("/api/car/Brands/", { pid: 0 }, function (json) {
-            var sb = $("#SRbrands");
-            $.each(json, function () {
-
-                sb.append('<option value="' + this.ID + '">' + this.Title + '</option>');
-            });
-
-            $("#SRbrands").val("")
-            SRLoadCars();
-        });
-        $("#SRbrands").change(function () { SRLoadCars(); });
-
-    }
-
-    function SRLoadCars() {
-        var bid = $("#SRbrands").val();
-        if (bid == null || bid == '') return;
-        $.post("/api/car/cars/", { brandID: bid }, function (json) {
-            var sb = $("#SRCars");
-            sb.html('');
-            sb.append(' <option value="" selected>请选择汽车类型</option>');
-            $.each(json, function () {
-                sb.append('<option value="' + this.ID + '">' + this.Title + '</option>');
-            });
-            $("#SRCars").val("")
-        });
-
-    }
-</script>
-        <div class="dpindexmore"><span>或</span> <a href="/Comment" target="_blank">点击查看更多点评数据>></a></div>
+        <div class="dpindexmore"> <a href="/Comment" target="_blank">点击查看更多点评数据>></a></div>
     </div>
     <div class="right">
         <div class="zh_prize_ad">

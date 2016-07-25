@@ -34,52 +34,6 @@ $car_row = mysql_fetch_assoc($car_res);
 <div class="daohang"><a href="/">首页</a> > 汽车点评</div>
 <div class="dianpingpic_content">
 
-<script>
-    $(function () {
-        searchLoadBrand();
-        var targerURL = "/Comment/index" ;
-        $(".pingce_ss").click(function () {
-            var brandid = $("#Sbrands").val();
-            var carid = $("#SCars").val();
-            window.open(targerURL + "?" + $.param({ brandid: (brandid ? brandid : 0), carid: (carid ? carid : 0) }));
-        });
-    });
-
-    function searchLoadBrand()
-    {
-        $.post("/api/car/Brands/", { pid: 0 }, function (json) {
-            var sb=$("#Sbrands");
-            $.each(json, function () {
-                
-                sb.append('<option value="' + this.ID +'">' + this.Title + '</option>');
-            });
-
-            $("#Sbrands").val("")
-            serachLoadCars();
-
-        });
-        $("#Sbrands").change(function () { serachLoadCars(); });
-        
-    }
-
-    function serachLoadCars()
-    { 
-        var bid = $("#Sbrands").val();
-        if (bid == null || bid == '') return;
-        $.post("/api/car/cars/", { brandID: bid }, function (json) {
-            var sb = $("#SCars");
-            sb.html('');
-            sb.append(' <option value="" selected>请选择汽车类型</option>');
-            $.each(json, function () {
-                sb.append('<option value="' + this.ID + '">' + this.Title + '</option>');
-            });
-
-            $("#SCars").val("")
-        });
-
-    }
-</script>
-
 
 <div class="dianpingpic_name">
  <div class="dpic_name_title"><h1>本田凌派怎么样</h1></div>
