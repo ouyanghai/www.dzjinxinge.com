@@ -26,6 +26,8 @@ if(mysql_num_rows($t_res)==0){
 //首页评论
 $sql = "select * from `car_comment` order by comm_time desc limit 8";
 $result = mysql_query($sql);
+
+$ytx = mysql_query("select id,title from `tg_ytx` order by ctime desc limit 1");
 ?>
  <div class="jieshao">车道评测网（http://www.dzjinxinge.com）--我们专注于汽车点评，我们是专业的汽车点评网站，我们倾听汽车用户的真实声音。</div>
 <div class="daolan">
@@ -104,6 +106,14 @@ $result = mysql_query($sql);
 <div class="content">
     <div class="left">
 		<div class="dpindex"><span><a href="/help/show.php?type=25584939316" target="_blank" title="参与汽车点评有哪些好处？">参与汽车点评有哪些好处？</a></span>精彩汽车点评(共有<?php echo $y_num; ?>条网友点评)</div>
+        <?php $row=mysql_fetch_assoc($ytx); if(!empty($row)){?>
+        <div class="dpindex01">
+            <a href="./Comment/ytx.php?id=<?php echo $row['id']?>" title="" target="_blank">
+                <img src="http://www.ytx.la/assets/image/news-03.jpg" class="imgbar" alt="" align="left" alt="营天下手机" /></a>
+            <a href="./Comment/ytx.php?id=<?php echo $row['id']?>" class="blue" target="_blank"><?php echo $row['title'].' 点评 '.$row['title'] ?></a><br /><br />
+            <a href="./Comment/list.php">更多...</a>
+        </div>
+        <?php } ?>
         <?php while($row=mysql_fetch_assoc($result)){ 
             $res = mysql_query("select count(car_id) from `car_comment` where car_id={$row['car_id']}");
             $comm_num = mysql_fetch_row($res);
@@ -138,7 +148,7 @@ $result = mysql_query($sql);
         <div class="rightlinek"></div>
 
         <div class="helpbar">
-            <div class="hbtitle">汽车评测<span><a href="/Article" title="汽车评测" target="_blank"><img src="/Content/images/left.jpg" />更多</a></span></div>
+            <div class="hbtitle">汽车评测<span><a href="/Comment/" title="汽车评测" target="_blank"><img src="/Content/images/left.jpg" />更多</a></span></div>
             <ul>
                 <li>[评测]<a href="/Article/show.php?type=54539677360" title="测试2015款雪佛兰新款科鲁兹1.4T DCG旗舰版" target="_blank">测试2015款雪佛兰新款科鲁兹1.4T DCG旗</a></li>
                 <li>[评测]<a href="/Article/show.php?type=54435342521" title="试驾2015款MINI COOPER S五门版" target="_blank">试驾2015款MINI COOPER S五门版</a></li>
@@ -311,30 +321,3 @@ $result = mysql_query($sql);
     </div>
 </div>
 -->
-<div class="link">
-<span>友情链接：</span>
-<a href="http://www.csadec.com/" target="_blank">汽车估损师</a>
-<a href="http://www.zjchewang.com/" target="_blank">浙江车网</a>
- <a href="http://www.shiguche88.com/" target="_blank">事故车交易网</a>
-<a href="http://www.chebiaow.com/" target="_blank">车标志大全</a> 
-<a href="http://www.1diaocha.com/" target="_blank">第一调查网</a>
-<a href="http://www.chiefchain.com/" target="_blank">洗车店加盟</a>
-<a href="http://www.jsrzx.com/" target="_blank">驾驶</a>
-<a href="http://www.cheyipai.com/" target="_blank">车易拍</a>
-<a href="http://www.qichexl.com/ " target="_blank">汽车销量网</a>
-<a href="http://www.100chee.com/" target="_blank">百车网</a>
-<a href="http://www.sinocars.com/" target="_blank">华夏汽车网</a>
-<a href="http://www.tjbsq.com/" target="_blank">天津港汽车</a>
-<a href="http://pingce.xincheping.com/" target="_blank">汽车评测</a>
-<a href="http://www.paochefang.com/" target="_blank">跑车图片
-</a>
-<a href="http://www.medved-put.com/ " target="_blank">车险计算器</a>
-<a href="http://www.syqcw.net/" target="_blank">十堰汽车网</a>
-<a href="http://www.chexianinfo.com/" target="_blank">车险信息网</a>
-<a href="http://www.wanche168.com/" target="_blank">玩车网</a>
-<a href="http://www.qp110.com/" target="_blank">汽车配件</a>
-<a href="http://www.cheyian.com/" target="_blank">车易安</a>
-<a href="http://www.bushome.net/" target="_blank">客车之家论坛</a>
-<a href="http://www.dinuanbaoyang.com/" target="_blank">地暖保养</a>
-<a href="http://www.cvworld.cn/" target="_blank">第一商用车网</a>
-</div>

@@ -75,22 +75,11 @@ function pop(){
 <?php 
 $cur_page = 1;
 $p_start = 0;
-$level = "";
-$p_level = "";//用于页码跳转
-//查询条件
-$condition = "";
-$group = 0;
-if(!empty($_GET['level']) && is_numeric($_GET['level'])){
-    $level = $_GET['level'];
-    $p_level = "&level={$level}";
-    $condition .= "where car_type={$_GET['level']}";
-}else{
-    $group = 1;
-}
+
 
 //页码
 //总页数
-$n_sql = "select count(id) as num from `car_comment` {$condition}";
+$n_sql = "select count(id) as num from `tg_ytx`";
 $n_res = mysql_query($n_sql);
 $pages = mysql_fetch_assoc($n_res);
 $pages = ceil(($pages['num']/10));
@@ -100,7 +89,7 @@ if(!empty($_GET['page']) && is_numeric($_GET['page']) && $_GET['page']>0 && $_GE
     $p_start = ($cur_page-1)*10;    
 }
 
-$sql = "select * from `car_comment` {$condition} order by comm_time desc limit {$p_start},10";
+$sql = "select * from `tg_ytx` limit {$p_start},10";
 $result = mysql_query($sql);
 ?>
 
@@ -168,30 +157,15 @@ $result = mysql_query($sql);
 <div class="zh_prize_left">
   <div class="zh_prize_xb">
   <!-- 全部汽车点评 开始-->
-   <div class="zh_qbdp_title">全部汽车点评信息</div>
+    <div class="zh_qbdp_title">全部汽车点评信息</div>
         <?php while($row=mysql_fetch_assoc($result)){?>
         <div class="dpbar">
-        	<div class="dpbleft"><a href="/Comment/show.php?type=<?php echo $row['car_id'] ?>" target="_blank"><img src="http://www.qupingche.com<?php echo $row['car_pic'] ?>" align="left" /></a></div>
-            <div class="dpbright">
-				<div class="dpbrtit">
-				<div class="dpbrt05"><span><a href="/Comment/show.php?type=<?php echo $row['car_id'] ?>" target="_blank"><?php echo $row['user_name'] ?></a></span> 点评 <span><a href="/Comment/show.php?type=<?php echo $row['car_id'] ?>" target="_blank"><?php echo $row['car_name'] ?></a></span></div>
-				<div class="dpbrt06">
-                <?php for($i=0;$i<ceil($row['scroe']);$i++){ ?>
-                    <img src="/Content/images/sstar.png" align="baseline" />
-                <?php }
-                    for($i=0;$i<5-ceil($row['scroe']);$i++){
-                ?>
-                    <img src="/Content/images/sstar1.png" align="baseline" />
-                <?php } ?>                
-                <strong><?php echo $row['scroe'] ?></strong>分</div>
-				</div>
-				<div class="dpbrcon">
-                <b class="youdian">优点：</b><?php echo $row['virtue'] ?><br />            
-                <b class="quedian">缺点：</b><?php echo $row['disadv'] ?><br />              
-                <b class="zongshu">综述：</b><?php echo $row['zong'] ?><br />
-                </div>
-				<div class="dpbrtime"><?php echo $row['comm_time'] ?></div>
-			</div>
+            <div class="dpbright" style="float:left;">
+      				<div class="dpbrtit">
+                  <span style="float:left;"><a href="/Comment/ytx.php?id=<?php echo $row['id'] ?>" target="_blank"><?php echo $row['title'] ?></a></span>  <span style="float:right;"><?php echo $row['ctime'] ?></span>
+
+      				</div>
+  			</div>
 		</div>
         <?php } ?>
 <!--分页显示开始-->  
@@ -204,8 +178,8 @@ $result = mysql_query($sql);
         <a disabled="disabled">首页</a>&nbsp;&nbsp;
         <a disabled="disabled">上一页</a>&nbsp;&nbsp;
     <?php }else{ ?>
-        <a href="/Comment?page=1{<?php echo $p_level ?>}">首页</a>&nbsp;&nbsp;
-        <a href="/Comment?page=<?php echo ($cur_page-1).$p_level; ?>">上一页</a>&nbsp;&nbsp;
+        <a href="/Comment/list.php?page=1}">首页</a>&nbsp;&nbsp;
+        <a href="/Comment/list.php?page=<?php echo $cur_page-1?>">上一页</a>&nbsp;&nbsp;
     <?php } ?>
     <?php 
         $s_page = $cur_page-4>0?$cur_page-4:1;
@@ -214,15 +188,15 @@ $result = mysql_query($sql);
             if($i == $cur_page){
                 echo $i.'&nbsp;&nbsp;';
             }else{ ?> 
-                <a href='/Comment?page=<?php echo $i.$p_level;?>'><?php echo $i;?></a>&nbsp;&nbsp;    
+                <a href='/Comment/list.php?page=<?php echo $i;?>'><?php echo $i;?></a>&nbsp;&nbsp;    
     <?php }} ?>
     
     <?php if($pages == $cur_page){ ?>
         <a disabled="disabled">下一页</a>&nbsp;&nbsp;
         <a disabled="disabled">尾页</a></div>
     <?php }else{ ?>
-        <a href="/Comment?page=<?php echo ($cur_page+1).$p_level; ?>">下一页</a>&nbsp;&nbsp;
-        <a href="/Comment?page=<?php echo $pages.$p_level; ?>">尾页</a></div>
+        <a href="/Comment/list.php?page=<?php echo ($cur_page+1); ?>">下一页</a>&nbsp;&nbsp;
+        <a href="/Comment/list.php?page=<?php echo $pages; ?>">尾页</a></div>
     <?php } ?>
 <!--MvcPager 1.5 for ASP.NET MVC 3.0 © 2009-2011 Webdiyer (http://www.webdiyer.com)-->
 

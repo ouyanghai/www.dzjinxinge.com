@@ -1,229 +1,47 @@
-<?php  
-$command = mysql_connect("23.248.162.241","debug","hdp@5C01") or die("mysql connect error!");
-mysql_select_db("web",$command);
-mysql_query("set names 'utf8'");
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>【车道评测网】是专业汽车点评网，我们倾听汽车用户的真实声音</title>
-    <meta name="description" content="车道评测网网是中国领先的专业汽车用户交流平台，致力于为广大网发提供专业汽车评测、汽车点评以及汽车用户口碑交流服务，我们的宗旨是做中国最专业的汽车点评网。" />
-    <meta name="keywords" content="汽车点评网,车评,评车,汽车口碑排行,比亚迪秦怎么样,迈腾好不好,大众途观怎么样,君威怎么样,本田雅阁怎么样,新宝来,福克斯好不好,速腾,雪佛兰科鲁兹怎么样,捷达,斯柯达野帝,大众朗逸,桑塔纳怎么样" />
-    <link href="/Content/css/base.css" rel="stylesheet" type="text/css" />
-    <link href="/Content/css/layout.css" rel="stylesheet" type="text/css" />
-    <link href="/Content/css/font.css" rel="stylesheet" type="text/css" />
-    <script src="/Content/js/jquery-1.7.1.min.js"></script>
-</head>
-<body id="top">
-<script type="text/javascript">
-var tim = setInterval(function(){
-    if(document.getElementById("poster")){
-        pop();
-        clearInterval(tim);
-    }
-
-},200);
-
-
-function pop(){
-    var bot = -200;
-    var inter = setInterval(function(){
-        bot += 1;
-        if(bot > 5){clearInterval(inter);}
-        $("#poster").css("bottom",bot+"px");
-    },5);
-    
-
-    $(".post-title a").click(function(){
-        $("#poster").hide();
-    });
-}
-</script>
-
-<div id="poster">
-    <div class="post-title">
-        <span>淘宝热卖商品推荐</span>      
-        <a href="javascript:;"></a>
-    </div>
-    <div>
-        <script type="text/javascript" src="http://i.haodianpu.com/detail.php?aid=59&m=300%2A210"></script>  
-    </div>
-</div>
-   <!--头部-->
-    
-<a name="gotop"></a>
-<div class="head">
-    <div class="head_top">
-        <div class="head_logo">
-            <a href="/"><img src="/Content/images/logo.png" alt="车道评测网LOGO" /></a>
-        </div>
-        <div class="head_nav">
-            <ul>
-                <li><a href="/" title="车道评测网首页">首页</a></li>
-                <li><a href="/Comment" title="汽车点评">点评</a></li>
-                <li><a href="/Report/index.php" title="汽车质量报告">报告</a><img src="/Content/images/new.gif" style="position:absolute;z-index:1001;margin-left:-10px;margin-top:-10px;" ></li>
-                <li><a href="/Article/index.php" title="汽车评测">评测</a></li>
-                <li><a href="/Car/Brands.php" title="车型大全">车型</a></li>
-            </ul>
-        </div>
-    
-
-    </div>
-</div>
-
 <?php 
-$cur_page = 1;
-$p_start = 0;
-$level = "";
-$p_level = "";//用于页码跳转
-//查询条件
-$condition = "";
-$group = 0;
-if(!empty($_GET['level']) && is_numeric($_GET['level'])){
-    $level = $_GET['level'];
-    $p_level = "&level={$level}";
-    $condition .= "where car_type={$_GET['level']}";
-}else{
-    $group = 1;
-}
+ob_start();
+include("../header.php");
+$html = ob_get_contents();
+ob_end_clean();
 
-//页码
-//总页数
-$n_sql = "select count(id) as num from `car_comment` {$condition}";
-$n_res = mysql_query($n_sql);
-$pages = mysql_fetch_assoc($n_res);
-$pages = ceil(($pages['num']/10));
-//当前页
-if(!empty($_GET['page']) && is_numeric($_GET['page']) && $_GET['page']>0 && $_GET['page']<=$pages){
-    $cur_page = $_GET['page'];
-    $p_start = ($cur_page-1)*10;    
-}
+$id = !empty($_GET['id'])&&is_numeric($_GET['id'])?$_GET['id']:1;
+$table = "`tg_ytx`";
 
-$sql = "select * from `car_comment` {$condition} order by comm_time desc limit {$p_start},10";
-$result = mysql_query($sql);
+$res = mysql_query("select * from {$table} where id={$id}");
+$row = mysql_fetch_assoc($res);
+$title = $row['title'];
+$html = str_replace("<title>", "<title>".$title."_", $html);
+echo $html;
+
 ?>
 
 <!--面包屑导航-->
 <div class="daohang"><a href="/">首页</a> > 汽车点评</div>
-<div class="chezhan_ad">
-<script type="text/javascript">
-    /*960*90 创建于 2015-08-20*/
-    var cpro_id = "u2273851";
-</script>
-<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
-
-</div>
 <div class="dianpingpic_content">
 
-<div class="topbar"><span>汽车点评</span>去车道评测网(http://www.dzjinxinge.com )专注于汽车点评，致力于为广大网友提供各种汽车外观、动力、内饰、故障、售后服务、操控、空间、性价比以及保养成<br>本等综合点评数据，是专业的汽车点评网站，我们倾听汽车用户的真实声音。</div>
 
-<div class="zh_pingce_pp">
-  <div class="zh_pingce_pp_s">
-    <div class="pingce_s_rmss">
-热门搜索：<a href="/comment/show.php?type=1009" target="_blank" title="长安锋驭">锋驭 </a><a href="/comment/show.php?type=98" target="_blank" title="比亚迪秦">秦</a><a href="/Comment/show.php?type=358" target="_blank" title="福克斯"> 福克斯</a> <a href="/Comment/show.php?type=262" target="_blank" title="途观">途观</a><a href="/Comment/show.php?type=255" target="_blank" title="迈腾"> 迈腾</a> <a href="/comment/show.php?type=252" target="_blank" title="新宝来">新宝来</a>    <a href="/comment/show.php?type=359" target="_blank" title="翼虎">翼虎</a> <a href="/comment/show.php?type=175" target="_blank" title="奔驰S级">奔驰S级 </a><a href="/comment/show.php?type=394" target="_blank" title="哈弗H6">哈弗H6</a>
-    </div>
-  </div>
-  <div class="zh_pingce_qcjb">
-    <div class="pingce_qcjb_name">汽车级别</div>
-    <div class="pingce_qcjb_cxlb">
-    <a href="/Comment/Index.php?level=27"><img src="/Content/images/pingce_wxtp.jpg" width="31" height="18" />微型</a>
-      <a href="/Comment/Index.php?level=28" target="_blank"><img src="/Content/images/pingce_xxtp.jpg" width="41" height="18" />小型</a>
-      <a href="/Comment/Index.php?level=29" target="_blank"><img src="/Content/images/pingce_jcxtp.jpg" width="43" height="18" />紧凑型</a>
-      <a href="/Comment/Index.php?level=46" target="_blank"><img src="/Content/images/pingce_zxtp.jpg" width="46" height="18" />中型</a>
-      <a href="/Co  mment/Index.php?level=47" target="_blank"><img src="/Content/images/pingce_zdxtp.jpg" width="48" height="18" />中大型</a>
-      <a href="/Comment/Index.php?level=48" target="_blank"><img src="/Content/images/pingce_hhxtp.jpg" width="53" height="18" />豪华型</a>
-      <a href="/Comment/Index.php?level=49" target="_blank"><img src="/Content/images/pingce_suvtp.jpg" width="45" height="18" />SUV</a>
-      <a href="/Comment/Index.php?level=50" target="_blank"><img src="/Content/images/pingce_mpvtp.jpg" width="45" height="18" />MPV</a>
-      <a href="/Comment/Index.php?level=51" target="_blank"><img src="/Content/images/pingce_pctp.jpg" width="50" height="18" />跑车</a>
-      <a href="/Comment/Index.php?level=52" target="_blank"><img src="/Content/images/pingce_xnytp.jpg" width="31" height="18" />新能源</a>
-    </div>
-  </div>
+<div class="dianpingpic_name">
+ <div class="dpic_name_title"><h1><?php echo $row['title'] ?></h1></div>
 </div>
-
-<?php if(empty($_GET['level'])){ ?>
-<div class="zh_dp_rpcx">
-  <div class="zh_rpcx1">
-    <div class="zh_rmdp_cx1"><div class="deal-mark"></div><a href="/Comment/show.php?type=1009"><img src="http://www.qupingche.com/attached/image/201312/02113531_6504.jpg" width="290" height="190" /></a>
-    </div>
-    <div class="zh_rmdp_cxt"><span>总评：4.0 分</span><a href="/Comment/show.php?type=1009">铃木 - 铃木锋驭</a></div>
-    <div class="zh_rmdp_cxdp">共有<span style="color:#FF6600; font-weight:bold;">590</span>位网友参与点评</div>
-  </div>
-  <div class="zh_rpcx1">
-    <div class="zh_rmdp_cx1"><div class="deal-mark"></div><a href="/Comment/show.php?type=98"><img src="http://www.qupingche.com/attached/image/201308/21172526_8528.jpg" width="290" height="190" /></a>
-    </div>
-    <div class="zh_rmdp_cxt"><span>总评：3.9 分</span><a href="/Comment/show.php?type=98">比亚迪 - 比亚迪秦</a></div>
-    <div class="zh_rmdp_cxdp">共有<span style="color:#FF6600; font-weight:bold;">184</span>位网友参与点评</div>
-  </div>
-  <div class="zh_rpcx1">
-    <div class="zh_rmdp_cx1"><div class="deal-mark"></div><a href="/Comment/show.php?type=262"><img src="http://www.qupingche.com/attached/image/201308/08104140_6178.jpg" width="290" height="190" /></a>
-    </div>
-    <div class="zh_rmdp_cxt"><span>总评：4.0 分</span><a href="/Comment/show.php?type=262">大众 - 大众途观</a></div>
-    <div class="zh_rmdp_cxdp">共有<span style="color:#FF6600; font-weight:bold;">1361</span>位网友参与点评</div>
-  </div>
-</div>
-<?php } ?>
 
 <div class="clear"></div>
 <div class="zh_prize_left">
   <div class="zh_prize_xb">
   <!-- 全部汽车点评 开始-->
-   <div class="zh_qbdp_title">全部汽车点评信息</div>
-        <?php while($row=mysql_fetch_assoc($result)){?>
-        <div class="dpbar">
-        	<div class="dpbleft"><a href="/Comment/show.php?type=<?php echo $row['car_id'] ?>" target="_blank"><img src="http://www.qupingche.com<?php echo $row['car_pic'] ?>" align="left" /></a></div>
-            <div class="dpbright">
-				<div class="dpbrtit">
-				<div class="dpbrt05"><span><a href="/Comment/show.php?type=<?php echo $row['car_id'] ?>" target="_blank"><?php echo $row['user_name'] ?></a></span> 点评 <span><a href="/Comment/show.php?type=<?php echo $row['car_id'] ?>" target="_blank"><?php echo $row['car_name'] ?></a></span></div>
-				<div class="dpbrt06">
-                <?php for($i=0;$i<ceil($row['scroe']);$i++){ ?>
-                    <img src="/Content/images/sstar.png" align="baseline" />
-                <?php }
-                    for($i=0;$i<5-ceil($row['scroe']);$i++){
-                ?>
-                    <img src="/Content/images/sstar1.png" align="baseline" />
-                <?php } ?>                
-                <strong><?php echo $row['scroe'] ?></strong>分</div>
-				</div>
-				<div class="dpbrcon">
-                <b class="youdian">优点：</b><?php echo $row['virtue'] ?><br />            
-                <b class="quedian">缺点：</b><?php echo $row['disadv'] ?><br />              
-                <b class="zongshu">综述：</b><?php echo $row['zong'] ?><br />
-                </div>
-				<div class="dpbrtime"><?php echo $row['comm_time'] ?></div>
-			</div>
-		</div>
-        <?php } ?>
+  <?php echo $row['content'] ?>
 <!--分页显示开始-->  
   <div class="pagebar">
   <div id="pager">
   
 <!--MvcPager 1.5 for ASP.NET MVC 3.0 © 2009-2011 Webdiyer (http://www.webdiyer.com)-->
 <div>
-    <?php if($cur_page == 1){ ?>
+    
         <a disabled="disabled">首页</a>&nbsp;&nbsp;
         <a disabled="disabled">上一页</a>&nbsp;&nbsp;
-    <?php }else{ ?>
-        <a href="/Comment?page=1{<?php echo $p_level ?>}">首页</a>&nbsp;&nbsp;
-        <a href="/Comment?page=<?php echo ($cur_page-1).$p_level; ?>">上一页</a>&nbsp;&nbsp;
-    <?php } ?>
-    <?php 
-        $s_page = $cur_page-4>0?$cur_page-4:1;
-        $e_page = $cur_page+5>$pages?$pages:$cur_page+5;
-        for($i=$s_page;$i<=$e_page;$i++){
-            if($i == $cur_page){
-                echo $i.'&nbsp;&nbsp;';
-            }else{ ?> 
-                <a href='/Comment?page=<?php echo $i.$p_level;?>'><?php echo $i;?></a>&nbsp;&nbsp;    
-    <?php }} ?>
-    
-    <?php if($pages == $cur_page){ ?>
+                1
         <a disabled="disabled">下一页</a>&nbsp;&nbsp;
         <a disabled="disabled">尾页</a></div>
-    <?php }else{ ?>
-        <a href="/Comment?page=<?php echo ($cur_page+1).$p_level; ?>">下一页</a>&nbsp;&nbsp;
-        <a href="/Comment?page=<?php echo $pages.$p_level; ?>">尾页</a></div>
-    <?php } ?>
+    
 <!--MvcPager 1.5 for ASP.NET MVC 3.0 © 2009-2011 Webdiyer (http://www.webdiyer.com)-->
 
   </div>
@@ -233,9 +51,7 @@ $result = mysql_query($sql);
 
 <div class="zh_prize_right">
  <div class="zh_prize_ad">
- <a href="http://www.langyouhui.org/?gzid=s1-c2" target="_blank">
-<img src="http://images.sohu.com/saf/a2016/0722/wKiDRFeR3RyATkhOAAB0RD893MY256300x250.jpg" alt="" />
-</a>
+<img src="/ad/2014shijiebei.jpg" alt="看2014巴西世界杯，关注球星与车的那些事儿" />
 </div>
    
      <div class="zh_prize_helpt">
@@ -325,16 +141,16 @@ $result = mysql_query($sql);
 <div class="clear"></div>
 <div class="height20">&nbsp;</div>
 <div class="hotcars">
-	<div class="hcbar">
-    	<div class="hcleft">热门车展</div>
+  <div class="hcbar">
+      <div class="hcleft">热门车展</div>
         <div class="hcright">
 <a href="http://www.cnchezhan.com/beijing.html" target="_blank">北京车展</a> <a href="http://www.cnchezhan.com/shanghai.html" target="_blank">上海车展</a> <a href="http://www.cnchezhan.com/guangzhou.html" target="_blank">广州车展</a> <a href="http://www.cnchezhan.com/chengdu.html" target="_blank">成都车展</a> <a href="http://www.cnchezhan.com/shenzhen.html" target="_blank">深圳车展</a> <a href="http://www.cnchezhan.com/shenyang.html" target="_blank">沈阳车展</a> <a href="http://www.cnchezhan.com/changsha.html" target="_blank">长沙车展</a> <a href="http://www.cnchezhan.com/dalian.html" target="_blank">大连车展</a> <a href="http://www.cnchezhan.com/wuhan.html" target="_blank">武汉车展</a> <a href="http://www.cnchezhan.com/nanchang.html" target="_blank">南昌车展</a> <a href="http://www.cnchezhan.com/haerbin.html" target="_blank">哈尔滨车展</a></div>
-    	<div class="hcleft">热门车展</div>
+      <div class="hcleft">热门车展</div>
         <div class="hcright"><a href="http://www.cnchezhan.com/chongqing.html" target="_blank">重庆车展</a> <a href="http://www.cnchezhan.com/xian.html" target="_blank">西安车展</a> <a href="http://www.cnchezhan.com/hefei.html" target="_blank">合肥车展</a> <a href="http://www.cnchezhan.com/kunming.html" target="_blank">昆明车展</a> <a href="http://www.cnchezhan.com/zhengzhou.html" target="_blank">郑州车展</a> <a href="http://www.cnchezhan.com/nanning.html" target="_blank">南宁车展</a> <a href="http://www.cnchezhan.com/dongwan.html" target="_blank">东莞车展</a> <a href="http://www.cnchezhan.com/changchun.html" target="_blank">长春车展</a> <a href="http://www.cnchezhan.com/ningbo.html" target="_blank">宁波车展</a> <a href="http://www.cnchezhan.com/qingdao.html" target="_blank">青岛车展</a> <a href="http://www.dinuanbaoyang.com" target="_blank">地暖保养</a></div>
         </div></div>
 <div class="hotcars">
-	<div class="hcbar">
-    	<div class="hcleft">微型车</div>
+  <div class="hcbar">
+      <div class="hcleft">微型车</div>
         <div class="hcright"><a href="/comment/show.php?type=92" target="_blank" title="比亚迪f0">比亚迪f0</a><a href="/comment/show.php?type=576" target="_blank" title="铃木奥拓">铃木奥拓</a><a href="/comment/show.php?type=580" target="_blank" title="北斗星">北斗星</a><a href="/comment/show.php?type=105" target="_blank" title="长安奔奔">长安奔奔</a><a href="/comment/show.php?type=54" target="_blank" title="宝骏乐驰">宝骏乐驰</a><a href="/comment/show.php?type=668" class="huang" target="_blank" title="奇瑞QQ">奇瑞QQ</a><a href="/comment/show.php?type=482" target="_blank" title="吉利熊猫">吉利熊猫</a><a href="/comment/show.php?type=385" target="_blank" title="哈飞路宝">哈飞路宝</a><a href="/comment/show.php?type=457" target="_blank" title="江淮悦悦">江淮悦悦</a><a href="/comment/show.php?type=774" target="_blank" title="双环小贵族">双环小贵族</a><a href="/comment/show.php?type=321" target="_blank" title="菲亚特500">菲亚特500</a><a href="/comment/show.php?type=152" target="_blank" title="宝马i3">宝马i3</a></div>
         <div class="hcleft">小型车</div>
         <div class="hcright"><a href="/comment/show.php?type=260" target="_blank" title="大众polo">大众polo</a><a href="/comment/show.php?type=823" target="_blank" title="现代瑞纳">现代瑞纳</a><a href="/comment/show.php?type=579" target="_blank" title="长安铃木雨燕">长安铃木雨燕</a><a href="/comment/show.php?type=204" target="_blank" title="本田飞度">本田飞度</a><a href="/comment/show.php?type=357" target="_blank" title="福特嘉年华">福特嘉年华</a><a href="/comment/show.php?type=201" target="_blank" title="本田锋范">本田锋范</a><a href="/comment/show.php?type=693" target="_blank" title="日产骊威">日产骊威</a><a href="/comment/show.php?type=116" target="_blank" title="长安悦翔">长安悦翔</a><a href="/comment/show.php?type=852" class="huang" target="_blank" title="雪佛兰赛欧">雪佛兰赛欧</a><a href="/comment/show.php?type=674" target="_blank" title="起亚k2">起亚k2</a><a href="/comment/show.php?type=216" target="_blank" title="标致207">标致207</a></div>
@@ -357,6 +173,4 @@ $result = mysql_query($sql);
     </div>
 </div>
 <div class="height20"></div>
-
-
 <?php include_once("../footer.php") ?>

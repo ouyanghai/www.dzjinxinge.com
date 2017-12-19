@@ -791,7 +791,9 @@
         </div>
 		<div class="rightlinek"></div>
 		<div class="zh_prize_ad">
-<img src="/ad/2014shijiebei.jpg" alt="看2014巴西世界杯，关注球星与车的那些事儿" />
+        <a href="http://dol.deliver.ifeng.com/c?3fff84245MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFLZdcLRVDVLhyErsF3geGHTKHLbl0JNvBLaFDUGtGWzG4xC52l2HgWhtjJmDD7fSCIZkeTdzxEgBAD9V4-JxleITwCmnw1SUZP1FIMtCHRtCTA__DYV66bsNkBEmYPejTxEBnNYrQhzEA">
+<img src="http://c1.ifengimg.com/mappa/2016/08/11/74289c341bb51ca1bf4fbe1ce7bbabe6.jpg" alt="看2014巴西世界杯，关注球星与车的那些事儿" />
+</a>
 </div>
     </div>
 

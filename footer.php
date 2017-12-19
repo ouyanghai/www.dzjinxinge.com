@@ -1,3 +1,36 @@
+<div class="link">
+<span>友情链接：</span>
+<a href="http://hao.360.cn/" target="_blank" >360导航</a>
+<a href="http://www.114la.com" target="_blank">114啦网址导航</a>
+<a href="http://www.duba.com/" target="_blank">毒霸网址大全</a>
+<a href="http://www.csadec.com/" target="_blank">汽车估损师</a>
+<a href="http://www.zjchewang.com/" target="_blank">浙江车网</a>
+ <a href="http://www.shiguche88.com/" target="_blank">事故车交易网</a>
+<a href="http://www.chebiaow.com/" target="_blank">车标志大全</a> 
+<a href="http://www.1diaocha.com/" target="_blank">第一调查网</a>
+<a href="http://www.chiefchain.com/" target="_blank">洗车店加盟</a>
+<a href="http://www.jsrzx.com/" target="_blank">驾驶</a>
+<a href="http://www.cheyipai.com/" target="_blank">车易拍</a>
+<a href="http://www.qichexl.com/ " target="_blank">汽车销量网</a>
+<a href="http://www.100chee.com/" target="_blank">百车网</a>
+<a href="http://www.sinocars.com/" target="_blank">华夏汽车网</a>
+<a href="http://www.tjbsq.com/" target="_blank">天津港汽车</a>
+<a href="http://pingce.xincheping.com/" target="_blank">汽车评测</a>
+<a href="http://www.paochefang.com/" target="_blank">跑车图片
+</a>
+<a href="http://www.medved-put.com/ " target="_blank">车险计算器</a>
+<a href="http://www.syqcw.net/" target="_blank">十堰汽车网</a>
+<a href="http://www.chexianinfo.com/" target="_blank">车险信息网</a>
+<a href="http://www.wanche168.com/" target="_blank">玩车网</a>
+<a href="http://www.qp110.com/" target="_blank">汽车配件</a>
+<a href="http://www.cheyian.com/" target="_blank">车易安</a>
+<a href="http://www.bushome.net/" target="_blank">客车之家论坛</a>
+<a href="http://www.dinuanbaoyang.com/" target="_blank">地暖保养</a>
+<a href="http://www.cvworld.cn/" target="_blank">第一商用车网</a>
+<a href="http://www.aimajin.com">爱马金</a>
+<a href="http://www.yingxiaoshouji.net">营销手机</a>
+<a href="http://www.yingtianxiashouji.com">营天下</a>
+</div>
 <div class="linkbar"></div>
     <div class="foot">
     <div class="foot_content">
